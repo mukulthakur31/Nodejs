@@ -3,6 +3,6 @@ const app = require('./app.js')
 
 connectdb()
 
-app.listen(8000,()=>{
+app.listen(process.env.port,()=>{
     console.log(`server started at ${process.env.NODE_ENV} mode`  );
 })

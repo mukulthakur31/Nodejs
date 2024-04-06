@@ -20,7 +20,7 @@ app.use('/api/v1/users',userrouter)
 app.use('/api/v1/task',taskrouter)
 app.use(cors({
     origin:[process.env.FRONTEND_URL],
-    methods:["GET","POST","PUT","DELETE"],
+    methods:["get","post","put","delete"],
     credentials:true
 }))
 
