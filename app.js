@@ -16,13 +16,12 @@ app.get("/", (req, res) => {
   });
 app.use(
     cors({
-    origin:[process.env.Frontend_uri],
+        origin: process.env.Frontend_uri || "*",
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 })
 )
 
-// using middleware to get data  in body
 app.use(express.json())
 app.use(cookieParser())
 
