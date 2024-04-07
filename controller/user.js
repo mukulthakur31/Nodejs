@@ -24,7 +24,7 @@ const login = async (req,res,next)=>{
 
 
 
-const Register = async (req,res)=>{
+const Register = async (req,res,next)=>{
 
     try {
         const {name,email,password} = req.body
@@ -37,7 +37,8 @@ const Register = async (req,res)=>{
     user =await User.create({name,email,password:hashedpass})
 
     sendcookies(user,res,"registered successfully",201)
-    } catch (error) {
+    } 
+    catch (error) {
         next(error)
     }
 }
