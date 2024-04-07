@@ -11,22 +11,24 @@ const app = express()
 config({
     path:'./config.env'
 })
-app.get("/", (req, res) => {
-    res.send("Nice working");
-  });
+
+
+
+app.use(express.json())
+app.use(cookieParser())
 app.use(
     cors({
-        origin: process.env.Frontend_uri || "*",
+        origin:[process.env.Frontend_uri],
     methods:["GET","POST","PUT","DELETE"],
     credentials:true
 })
 )
 
-app.use(express.json())
-app.use(cookieParser())
-
 app.use('/api/v1/users',userrouter)
 app.use('/api/v1/task',taskrouter)
+app.get("/", (req, res) => {
+    res.send("Nice working");
+  });
 
 
 
